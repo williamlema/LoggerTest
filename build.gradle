@@ -3,6 +3,7 @@ buildscript {
         springBootVersion = '2.0.0.RELEASE'
     }
     repositories {
+
         mavenCentral()
         jcenter()
         maven { url "http://repo.spring.io/plugins-release" }
@@ -40,6 +41,7 @@ task fatJar(type: Jar) {
 }
 
 repositories {
+    
     mavenCentral()
     jcenter()
 }
@@ -51,9 +53,12 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-data-rest')
     compile('com.fasterxml.jackson.core:jackson-core')
-    compile('org.liquibase:liquibase-core')
+    compile('org.apache.commons:commons-lang3')
+    compile('commons-io:commons-io:2.6')
+    
+    annotationProcessor ('org.projectlombok:lombok:1.16.20')
 
-    runtime('mysql:mysql-connector-java')
+    runtime ('com.microsoft.sqlserver:mssql-jdbc')
 
     testCompile( 'org.mockito:mockito-all:1.10.19')
     testCompile( 'org.assertj:assertj-core:3.9.0')
